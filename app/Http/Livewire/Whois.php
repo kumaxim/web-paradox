@@ -25,9 +25,11 @@ class Whois extends Component
     {
         $this->validate();
 
+        $list = array_map('trim', explode(PHP_EOL, $this->domainList));
+
         $jsArray = sprintf(
             '[\'%s\']',
-            implode('\', \'', explode(PHP_EOL, $this->domainList))
+            implode('\', \'', array_unique($list))
         );
 
         $this->jsRunner = '<script type="text/javascript">queryWhoisData(queueDomains(' . $jsArray . '))</script>';
