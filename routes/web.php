@@ -16,4 +16,3 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [FrontpageController::class, 'index']);
 Route::post('/whois', [FrontpageController::class, 'whois']);
-
